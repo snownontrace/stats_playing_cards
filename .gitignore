@@ -1,0 +1,11 @@
+/.metadata/
+/.recommenders/
+.DS_Store
+.Rhistory
+#*#
+*[ca]
+*.mp4
+*.pdf
+.ipynb_checkpoints/
+*.log
+*.mbtree
