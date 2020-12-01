@@ -160,7 +160,7 @@ player_stats_df = pd.DataFrame(player_stats_data,
                                         'Average levels up',
                                         'N_games played',
                                         'N_games as dealer',
-                                        'N_games \nshort-staffed as dealer',
+                                        'N_games short-staffed as dealer',
                                         'Winning rate as dealer'])
 
 player_stats_df.sort_values(by=['Winning rate', 'Average levels up'],
