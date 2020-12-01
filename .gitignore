@@ -1,6 +1,6 @@
 /.metadata/
 /.recommenders/
-/_pycache_/
+/__pycache__/
 .DS_Store
 .Rhistory
 #*#
