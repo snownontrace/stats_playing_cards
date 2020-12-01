@@ -174,9 +174,11 @@ player_stats_df = player_stats_df[['Rank'] + player_stats_df.columns[:-1].tolist
 header_file = open('../snownontrace.github.io/player_stats_header.md', 'r')
 lines = header_file.readlines()
 with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
-    for line in lines[:-1]:
+    for line in lines[:-3]:
         the_file.write(line)
     for i in range(len(player_stats_df)):
         player_stats = [str(iii) for iii in player_stats_df.iloc[i,:].tolist()]
         player_stats_line = '| ' + ' | '.join(player_stats) + ' |' + '\n'
         the_file.write(player_stats_line)
+    for line in lines[-2:]:
+        the_file.write(line)
