@@ -180,6 +180,11 @@ player_stats_df = player_stats_df[['Rank'] + player_stats_df.columns[:-1].tolist
 # update the markdown file in the gibhub pages folder
 header_file = open('../snownontrace.github.io/player_stats_header.md', 'r')
 lines = header_file.readlines()
+
+# get today's date
+today = date.today()
+date_today = today.strftime("%Y-%m-%d")
+
 with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
     for line in lines[:5]:
         the_file.write(line)
