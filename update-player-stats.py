@@ -15,6 +15,9 @@ def get_player_stats(df, player, shortstaffed_games_list):
     # subset rows of the specified player
     df_player = df[df.player_id == player]
 
+    # cumulative levels up
+    lifetime_level = df_player.lifetime_level_after.max()
+
     # subset rows that this player wins
     df_player_winning = df_player[df_player.player_win_lose == 'win']
 
@@ -45,6 +48,7 @@ def get_player_stats(df, player, shortstaffed_games_list):
     n_shortstaffed_games = len( list(set(shortstaffed_games_list) & set(dealing_games_list)) )
 
 #     player_stats = [player,
+#                     lifetime_level,
 #                     winning_rate,
 #                     average_level_up,
 #                     len(df_player),
@@ -53,7 +57,8 @@ def get_player_stats(df, player, shortstaffed_games_list):
 #                     winning_rate_as_dealer]
 
     # formatted version
-    player_stats = [player.replace('_', ' '),
+    player_stats = [player.replace('_', ' <br> '),
+                    lifetime_level,
                     "{:.1%}".format(winning_rate),
                     "{:.2f}".format(average_level_up),
                     len(df_player),
@@ -157,14 +162,15 @@ for player in df.player_id.unique():
     player_stats_data.append(get_player_stats(df, player, shortstaffed_games_list))
 player_stats_df = pd.DataFrame(player_stats_data,
                                columns=['Player',
+                                        'Lifetime levels up',
                                         'Winning rate',
                                         'Average levels up',
                                         'N_games played',
                                         'N_games as dealer',
-                                        'N_games short-staffed as dealer',
+                                        'N_games short staffed as dealer',
                                         'Winning rate as dealer'])
 
-player_stats_df.sort_values(by=['Winning rate', 'Average levels up'],
+player_stats_df.sort_values(by=['Lifetime levels up', 'Winning rate', 'Average levels up'],
                             ascending=False, inplace=True)
 player_stats_df.reset_index(inplace=True, drop=True)
 player_stats_df['Rank'] = list(range(1, len(player_stats_df)+1))
