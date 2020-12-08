@@ -198,3 +198,6 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(player_stats_line)
     for line in lines[-2:]:
         the_file.write(line)
+
+
+os.system('')
