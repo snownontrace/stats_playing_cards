@@ -1,6 +1,7 @@
 from get_sheet_data import get_sheet_data
 import pandas as pd
 from datetime import date
+import os
 
 # Utility functions
 def get_player_stats(df, player, shortstaffed_games_list):
@@ -200,7 +201,7 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(line)
 
 
-os.system('cd ~/Github/snownontrace.github.io')
+os.system('cd ../Github/snownontrace.github.io')
 os.system('git pull origin master')
 os.system('git add player_stats.md')
 os.system('git commit -m \"update player stats\"')
