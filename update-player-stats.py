@@ -47,11 +47,15 @@ def get_player_stats(df, player, shortstaffed_games_list):
     dealing_games_list = df_player_dealing.game_id.tolist()
     n_shortstaffed_games = len( list(set(shortstaffed_games_list) & set(dealing_games_list)) )
 
+    # subset rows that player is MVP
+    df_player_MVP = df_player[df_player.is_MVP == 'Yes']
+
 #     player_stats = [player,
 #                     lifetime_level,
 #                     winning_rate,
 #                     average_level_up,
 #                     len(df_player),
+#                     len(df_player_MVP),
 #                     len(df_player_dealing),
 #                     n_shortstaffed_games,
 #                     winning_rate_as_dealer]
@@ -62,6 +66,7 @@ def get_player_stats(df, player, shortstaffed_games_list):
                     "{:.1%}".format(winning_rate),
                     "{:.2f}".format(average_level_up),
                     len(df_player),
+                    len(df_player_MVP),
                     len(df_player_dealing),
                     n_shortstaffed_games,
                     "{:.1%}".format(winning_rate_as_dealer)]
