@@ -171,6 +171,7 @@ player_stats_df = pd.DataFrame(player_stats_data,
                                         'Winning rate',
                                         'Average levels up',
                                         'N_games played',
+                                        'N_games played as MVP',
                                         'N_games as dealer',
                                         'N_games short staffed as dealer',
                                         'Winning rate as dealer'])
