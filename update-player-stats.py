@@ -1,6 +1,7 @@
 from get_sheet_data import get_sheet_data
 import pandas as pd
 from datetime import date
+import plotnine as p9
 
 # Utility functions
 def get_player_stats(df, player, shortstaffed_games_list):
@@ -196,11 +197,41 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(line)
     # update the date with the current date
     the_file.write('date: ' + date_today + '\n')
-    for line in lines[6:-3]:
+    for line in lines[6:12]:
         the_file.write(line)
     for i in range(len(player_stats_df)):
         player_stats = [str(iii) for iii in player_stats_df.iloc[i,:].tolist()]
         player_stats_line = '| ' + ' | '.join(player_stats) + ' |' + '\n'
         the_file.write(player_stats_line)
-    for line in lines[-2:]:
+    for line in lines[-4:]:
         the_file.write(line)
+        
+df_player_history = df[['player_id', 'lifetime_level_before']]
+df_player_history.sort_values(by=['player_id', 'lifetime_level_before'], ascending=True, inplace=True)
+
+# make game inex
+game_index = []
+for i in df_player_history.groupby('player_id').describe()['lifetime_level_before']['count']:
+    for j in range(int(i)):
+        game_index.append(j)
+df_player_history['game_index'] = game_index
+# df_player_history
+
+# We can further customize the plot appearance by changing the themes
+player_history_plot = (
+p9.ggplot(data=df_player_history,
+          mapping=p9.aes(x='game_index',
+                         y='lifetime_level_before'))
+#     + p9.geom_point(alpha=0.1)
+    + p9.geom_line(color='blue')
+    + p9.xlab("Number of games played")
+    + p9.ylab("Cumulative levels up")
+    + p9.theme_classic() # use alternative themes
+    + p9.facet_wrap("player_id", ncol=3)
+    + p9.theme(figure_size=(3, 4.5), dpi=300)
+    + p9.theme(text=p9.element_text(size=7, font='Arial'))
+    + p9.theme(axis_text_x = p9.element_text(color="grey", size=7, font='Arial'),
+               axis_text_y = p9.element_text(color="grey", size=7, font='Arial'))
+)
+
+player_history_plot.save('../snownontrace.github.io/assets/images/player_history_plot.png')
