@@ -217,6 +217,10 @@ for i in df_player_history.groupby('player_id').describe()['lifetime_level_befor
 df_player_history['game_index'] = game_index
 # df_player_history
 
+# replace the underscore in player id with space
+player_reformatted = [player.replace('_', ' ') for player in df_player_history.player_id]
+df_player_history.loc[:, 'player_id'] = player_reformatted
+
 # We can further customize the plot appearance by changing the themes
 player_history_plot = (
 p9.ggplot(data=df_player_history,
