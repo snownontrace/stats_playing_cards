@@ -215,7 +215,7 @@ for i in df_player_history.groupby('player_id').describe()['lifetime_level_befor
     for j in range(int(i)):
         game_index.append(j)
 df_player_history['game_index'] = game_index
-# df_player_history
+# df_player_history # show the data frame
 
 # replace the underscore in player id with space
 player_reformatted = [player.replace('_', ' ') for player in df_player_history.player_id]
