@@ -205,7 +205,7 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(player_stats_line)
     for line in lines[-4:]:
         the_file.write(line)
-        
+
 df_player_history = df[['player_id', 'lifetime_level_before']]
 df_player_history.sort_values(by=['player_id', 'lifetime_level_before'], ascending=True, inplace=True)
 
@@ -233,9 +233,9 @@ p9.ggplot(data=df_player_history,
     + p9.theme_classic() # use alternative themes
     + p9.facet_wrap("player_id", ncol=3)
     + p9.theme(figure_size=(3, 4.5), dpi=300)
-    + p9.theme(text=p9.element_text(size=7, font='Arial'))
-    + p9.theme(axis_text_x = p9.element_text(color="grey", size=7, font='Arial'),
-               axis_text_y = p9.element_text(color="grey", size=7, font='Arial'))
+    + p9.theme(text=p9.element_text(size=7, family='Arial'))
+    + p9.theme(axis_text_x = p9.element_text(color="grey", size=7, family='Arial'),
+               axis_text_y = p9.element_text(color="grey", size=7, family='Arial'))
 )
 
 player_history_plot.save('../snownontrace.github.io/assets/images/player_history_plot.png')
