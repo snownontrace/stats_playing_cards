@@ -11,3 +11,4 @@
 *.log
 *.mbtree
 *.pickle
+*.json
