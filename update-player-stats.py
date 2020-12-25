@@ -1,7 +1,7 @@
-from get_sheet_data import get_sheet_data
 import pandas as pd
-from datetime import date
 import plotnine as p9
+from datetime import date
+from read_google_sheet import read_google_sheet
 
 # Utility functions
 def get_player_stats(df, player, shortstaffed_games_list):
@@ -134,9 +134,8 @@ def get_games_dealer_team_shortstaffed(df):
     return games_dealer_team_shortstaffed
 
 # pull data from the Google spreadsheet
-SHEET_URL = 'https://docs.google.com/spreadsheets/d/1So3PBr9gV3I0LzApZOgJlQew2QjM1wAiWhR50rAnHRg/edit#gid=2137801449'
-spreadsheet_id = SHEET_URL.split('/')[5]
-data = get_sheet_data(spreadsheet_id, 'cleaned')
+spreadsheet_id = '1So3PBr9gV3I0LzApZOgJlQew2QjM1wAiWhR50rAnHRg'
+data = read_google_sheet(spreadsheet_id, 'cleaned')
 
 # Reformat the data into a pandas dataframe
 df_raw = pd.DataFrame(data[1:], columns=data[0])
