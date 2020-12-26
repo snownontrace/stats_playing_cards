@@ -1,7 +1,7 @@
 import pandas as pd
 import plotnine as p9
 from datetime import date
-from read_google_sheet import read_google_sheet
+from get_game_info import get_df_game_record
 
 # Utility functions
 def get_player_stats(df, player, shortstaffed_games_list):
@@ -133,31 +133,33 @@ def get_games_dealer_team_shortstaffed(df):
 
     return games_dealer_team_shortstaffed
 
-# pull data from the Google spreadsheet
-spreadsheet_id = '1So3PBr9gV3I0LzApZOgJlQew2QjM1wAiWhR50rAnHRg'
-data = read_google_sheet(spreadsheet_id)
+# # pull data from the Google spreadsheet
+# spreadsheet_id = '1So3PBr9gV3I0LzApZOgJlQew2QjM1wAiWhR50rAnHRg'
+# data = read_google_sheet(spreadsheet_id)
 
-# Reformat the data into a pandas dataframe
-df_raw = pd.DataFrame(data[1:], columns=data[0])
+# # Reformat the data into a pandas dataframe
+# df_raw = pd.DataFrame(data[1:], columns=data[0])
 
-# Add a column of date
-df_raw['date'] = df_raw.year + '-' + df_raw.month + '-' + df_raw.day
-df_raw.head()
+# # Add a column of date
+# df_raw['date'] = df_raw.year + '-' + df_raw.month + '-' + df_raw.day
+# df_raw.head()
 
-# change the data types of certain columns to integers for calculation
-df = df_raw.astype({'game_id': 'int64',
-                    'level_rounds_before': 'int64',
-                    'level_rounds_after': 'int64',
-                    'score_goal': 'int64',
-                    'n_players': 'int64',
-                    'n_decks': 'int64',
-                    'score': 'int64',
-                    'level_up': 'int64',
-                    'lifetime_level_before': 'int64',
-                    'lifetime_level_after': 'int64',
-                    'year': 'int64',
-                    'month': 'int64',
-                    'day': 'int64'})
+# # change the data types of certain columns to integers for calculation
+# df = df_raw.astype({'game_id': 'int64',
+#                     'level_rounds_before': 'int64',
+#                     'level_rounds_after': 'int64',
+#                     'score_goal': 'int64',
+#                     'n_players': 'int64',
+#                     'n_decks': 'int64',
+#                     'score': 'int64',
+#                     'level_up': 'int64',
+#                     'lifetime_level_before': 'int64',
+#                     'lifetime_level_after': 'int64',
+#                     'year': 'int64',
+#                     'month': 'int64',
+#                     'day': 'int64'})
+
+df = get_df_game_record(force_remote=False)
 
 # get a list of game_id when the dealer team is shortstaffed
 shortstaffed_games_list = get_games_dealer_team_shortstaffed(df)

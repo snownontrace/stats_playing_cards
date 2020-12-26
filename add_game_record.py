@@ -20,6 +20,22 @@ def get_index(s):
         
     return idx
 
+def get_updated_range_idx(response):
+    '''
+    '''
+    import re
+
+    updatedRange = response['updates']['updatedRange']
+    
+    upper_left = updatedRange.split('!')[1].split(':')[0]
+    lower_right = updatedRange.split('!')[1].split(':')[1]
+
+    col_start = get_index(re.findall(r'[A-Z]+', upper_left)[0]) # 1-based, included
+    col_end = get_index(re.findall(r'[A-Z]+', lower_right)[0]) # 1-based, included
+    row_start = int(re.findall(r'[0-9]+', upper_left)[0]) # 1-based, included
+    row_end = int(re.findall(r'[0-9]+', lower_right)[0]) # 1-based, included
+    
+    return [col_start, col_end, row_start, row_end]
 
 def add_game_record(game_info_file,
                     update_local=True, update_remote=True,

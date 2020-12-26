@@ -1,3 +1,4 @@
+python add_game_record.py
 python update-player-stats.py
 cd ~/Github/snownontrace.github.io
 git pull origin master

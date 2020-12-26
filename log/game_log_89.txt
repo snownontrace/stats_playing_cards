@@ -1,9 +1,0 @@
-# Note: record players in the order of playing!
-players: Shaohe Wang, Di_Wu, Zheng_Li, Yanni_Lin, Xu_Zhang, Qingzhi_Liu, Minghai_Qin, Hai_Yang
-dealer: Zheng_Li
-dealer_team: Shaohe_Wang, Qingzhi_Liu, Hai_Yang
-MVP: NA
-n_decks: 5
-score_goal: 210
-prime_suit: heart
-score: 50
