@@ -1,7 +1,5 @@
-import argparse
-import pickle
-import os
-from googleapiclient.discovery import build
+import os, argparse, pickle
+from googleapiclient import discovery
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
@@ -57,20 +55,27 @@ def read_google_sheet(spreadsheet_id=None, range_=None):
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
-    service = build('sheets', 'v4', credentials=creds)
+    service = discovery.build('sheets', 'v4', credentials=creds)
 
     # Call the Sheets API
-    sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=spreadsheet_id,
-                                range=range_).execute()
-    data = result.get('values', [])
+    
+    result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id,
+                                                 range=range_).execute()
+    rows = result.get('values', [])
+    
+    print('{0} rows retrieved.'.format(len(rows)))
+    
+#     request = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id,
+#                                                   range=range_)
+#     response = request.execute()
+#     data = response.get('values', [])
 
-    if not data:
-        print('No data found in the Google spreadsheet.')
-    else:
-        print("Successfully copied data from Google spreadsheet.")
+#     if not data:
+#         print('No data found in the Google spreadsheet.')
+#     else:
+#         print("Successfully copied data from Google spreadsheet.")
 
-    return data
+    return rows
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

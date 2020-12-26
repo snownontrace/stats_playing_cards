@@ -135,7 +135,7 @@ def get_games_dealer_team_shortstaffed(df):
 
 # pull data from the Google spreadsheet
 spreadsheet_id = '1So3PBr9gV3I0LzApZOgJlQew2QjM1wAiWhR50rAnHRg'
-data = read_google_sheet(spreadsheet_id, 'cleaned')
+data = read_google_sheet(spreadsheet_id)
 
 # Reformat the data into a pandas dataframe
 df_raw = pd.DataFrame(data[1:], columns=data[0])
