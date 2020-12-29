@@ -198,7 +198,7 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(line)
     # update the date with the current date
     the_file.write('date: ' + date_today + '\n')
-    for line in lines[6:14]:
+    for line in lines[6:16]:
         the_file.write(line)
     for i in range(len(player_stats_df)):
         player_stats = [str(iii) for iii in player_stats_df.iloc[i,:].tolist()]
