@@ -204,7 +204,7 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         player_stats = [str(iii) for iii in player_stats_df.iloc[i,:].tolist()]
         player_stats_line = '| ' + ' | '.join(player_stats) + ' |' + '\n'
         the_file.write(player_stats_line)
-    for line in lines[-4:]:
+    for line in lines[-7:]:
         the_file.write(line)
 
 df_player_history = df[['player_id', 'lifetime_level_before']]
