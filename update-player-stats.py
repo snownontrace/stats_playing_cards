@@ -198,13 +198,13 @@ with open('../snownontrace.github.io/player_stats.md', 'w') as the_file:
         the_file.write(line)
     # update the date with the current date
     the_file.write('date: ' + date_today + '\n')
-    for line in lines[6:12]:
+    for line in lines[6:14]:
         the_file.write(line)
     for i in range(len(player_stats_df)):
         player_stats = [str(iii) for iii in player_stats_df.iloc[i,:].tolist()]
         player_stats_line = '| ' + ' | '.join(player_stats) + ' |' + '\n'
         the_file.write(player_stats_line)
-    for line in lines[-7:]:
+    for line in lines[-5:]:
         the_file.write(line)
 
 df_player_history = df[['player_id', 'lifetime_level_before']]
