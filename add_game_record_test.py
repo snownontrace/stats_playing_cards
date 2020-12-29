@@ -45,7 +45,7 @@ def add_game_record(game_info_file,
 
     # provide default values for optional parameters
     if csv_log is None:
-        csv_log = './log/game_record.csv'
+        csv_log = './log/game_record_test.csv'
 
     if spreadsheet_id is None:
         # This is the testing Google spreadsheet
