@@ -37,6 +37,34 @@ def get_updated_range_idx(response):
 
     return [col_start, col_end, row_start, row_end]
 
+def next_dealer_info(game_info_dict):
+    '''
+    report the next dealer information and level to play
+    '''
+    current_dealer_index = game_info_dict['is_dealer'].index('Yes')
+    for i in range(current_dealer_index+1,
+                   current_dealer_index+len(game_info_dict['is_dealer'])):
+        if game_info_dict['dealer_win_lose'][0] == 'win':
+            if game_info_dict['on_dealer_team'][i%7] == 'Yes':
+                print('Congrats to the dealer team!')
+                next_dealer = game_info_dict['player_id'][i%7]
+                print('Next dealer is:', next_dealer.replace('_', ' '))
+                print('We are playing:', game_info_dict['level_after'][i%7],
+                      'of round', game_info_dict['level_rounds_after'][i%7])
+                break
+            else:
+                continue
+        else:
+            if game_info_dict['on_dealer_team'][i%7] == 'No':
+                print('Congrats to the non_dealer team!')
+                next_dealer = game_info_dict['player_id'][i%7]
+                print('Next dealer is:', next_dealer.replace('_', ' '))
+                print('We are playing:', game_info_dict['level_after'][i%7],
+                      'of round', game_info_dict['level_rounds_after'][i%7])
+                break
+            else:
+                continue
+
 def add_game_record(game_info_file,
                     update_local=True, update_remote=True,
                     csv_log=None, spreadsheet_id=None, range_=None):
@@ -64,6 +92,9 @@ def add_game_record(game_info_file,
 
     # obtain current game info from the game info text file
     game_info_dict = get_game_info(game_info_file, game_record_df)
+
+    # print out next dealer and playing information
+    next_dealer_info(game_info_dict)
 
     if update_remote:
         # reformat dict to 2D array for writing to Google spreadsheet

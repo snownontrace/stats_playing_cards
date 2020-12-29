@@ -7,4 +7,4 @@ MVP: Qingzhi_Liu
 n_decks: 5
 score_goal: 230
 prime_suit: diamond
-score: 330
+score: 130
