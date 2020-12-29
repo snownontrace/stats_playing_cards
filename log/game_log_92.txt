@@ -1,0 +1,9 @@
+# Note: record players in the order of playing!
+players: Shaohe_Wang, Di_Wu, Zheng_Li, Xu_Zhang, Qingzhi_Liu, Hai_Yang
+dealer: Hai_Yang
+dealer_team: Shaohe_Wang, Zheng_Li
+MVP: Di_Wu
+n_decks: 4
+score_goal: 170
+prime_suit: spade
+score: 215

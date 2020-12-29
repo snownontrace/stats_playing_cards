@@ -2,9 +2,9 @@
 # spade, heart, club, diamond
 players: Shaohe_Wang, Di_Wu, Zheng_Li, Xu_Zhang, Qingzhi_Liu, Hai_Yang, Yanni_Lin
 dealer: Hai_Yang
-dealer_team: Xu_Zhang, Di_Wu
-MVP: Qingzhi_Liu
+dealer_team: Xu_Zhang, Qingzhi_Liu
+MVP: Yanni_Lin
 n_decks: 5
 score_goal: 230
-prime_suit: diamond
-score: 330
+prime_suit: spade
+score: 215

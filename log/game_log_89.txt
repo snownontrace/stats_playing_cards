@@ -1,0 +1,9 @@
+# Note: record players in the order of playing!
+players: Shaohe Wang, Di_Wu, Zheng_Li, Xu_Zhang, Qingzhi_Liu
+dealer: Di_Wu
+dealer_team: Zheng_Li
+MVP: Zheng_Li
+n_decks: 3
+score_goal: 150
+prime_suit: spade
+score: 120
