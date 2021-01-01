@@ -42,25 +42,26 @@ def next_dealer_info(game_info_dict):
     report the next dealer information and level to play
     '''
     current_dealer_index = game_info_dict['is_dealer'].index('Yes')
+    n = len(game_info_dict['is_dealer'])
     for i in range(current_dealer_index+1,
                    current_dealer_index+len(game_info_dict['is_dealer'])):
         if game_info_dict['dealer_win_lose'][0] == 'win':
-            if game_info_dict['on_dealer_team'][i%7] == 'Yes':
+            if game_info_dict['on_dealer_team'][i%n] == 'Yes':
                 print('Congrats to the dealer team!')
-                next_dealer = game_info_dict['player_id'][i%7]
+                next_dealer = game_info_dict['player_id'][i%n]
                 print('Next dealer is:', next_dealer.replace('_', ' '))
-                print('We are playing:', game_info_dict['level_after'][i%7],
-                      'of round', game_info_dict['level_rounds_after'][i%7])
+                print('We are playing:', game_info_dict['level_after'][i%n],
+                      'of round', game_info_dict['level_rounds_after'][i%n])
                 break
             else:
                 continue
         else:
-            if game_info_dict['on_dealer_team'][i%7] == 'No':
+            if game_info_dict['on_dealer_team'][i%n] == 'No':
                 print('Congrats to the non_dealer team!')
-                next_dealer = game_info_dict['player_id'][i%7]
+                next_dealer = game_info_dict['player_id'][i%n]
                 print('Next dealer is:', next_dealer.replace('_', ' '))
-                print('We are playing:', game_info_dict['level_after'][i%7],
-                      'of round', game_info_dict['level_rounds_after'][i%7])
+                print('We are playing:', game_info_dict['level_after'][i%n],
+                      'of round', game_info_dict['level_rounds_after'][i%n])
                 break
             else:
                 continue
