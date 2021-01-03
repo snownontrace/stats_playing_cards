@@ -1,0 +1,10 @@
+# Note: record players in the order of playing!
+# spade, heart, club, diamond
+players: Shaohe_Wang, Di_Wu, Zheng_Li, Xu_Zhang, Hai_Yang, Qingzhi_Liu, Yanni_Lin, Minghai_Qin
+dealer: Qingzhi_Liu
+dealer_team: Yanni_Lin, Shaohe_Wang, Di_Wu
+MVP: Zheng_Li
+n_decks: 5
+score_goal: 210
+prime_suit: diamond
+score: 245
