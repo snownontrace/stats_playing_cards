@@ -92,7 +92,7 @@ def add_game_record(game_info_file, force_remote,
                                         range_name=range_)
 
     # obtain current game info from the game info text file
-    game_info_dict = get_game_info(game_info_file, game_record_df)
+    game_info_dict = get_game_info(game_info_file, game_record_df, keep_game_info_log=False)
 
     # print out next dealer and playing information
     next_dealer_info(game_info_dict)
