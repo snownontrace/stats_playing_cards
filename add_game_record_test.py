@@ -72,6 +72,46 @@ def add_game_record(game_info_file, force_remote,
                     update_local=True, update_remote=True,
                     csv_log=None, spreadsheet_id=None, range_=None):
     '''
+    Read in current game info and update both local and remote record spreadsheets
+
+    Input
+    -----
+    game_info_file:
+        A text file storing current game info
+
+    force_remote:
+        Boolean value indicating whether data should be pulled from
+        Google spreadsheet even when a local record is present
+
+    update_local:
+        Boolean value indicating whether to update the local record
+        Default: True
+
+    update_remote:
+        Boolean value indicating whether to update the remote record
+        Default: True
+
+    csv_log:
+        Path to the local record csv file
+        If not provided, will use './log/game_record_test.csv'
+
+    spreadsheet_id:
+        The identifier of a spreadsheet, which is embedded in the Google Spreadsheet URL.
+        For example:
+            https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit#gid={sheet_id}
+        If not provided, the id of the testing game record spreadsheet will be used.
+
+    range_:
+        Specify the range of data. For example: 'Sheet1!A1:E5'
+        If not provided, 'Sheet1' will be used.
+
+
+    Output
+    ------
+        1. Text output of the next game information (who is the next dealer and what level to play).
+        2. A "game_record_test.csv" file of all game records (if update_local is True).
+        4. Updating the Google spreadsheet by appending the new game data (if update_remote is True).
+
     '''
 
     # provide default values for optional parameters
