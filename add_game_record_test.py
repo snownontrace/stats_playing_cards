@@ -48,10 +48,12 @@ def next_dealer_info(game_info_dict):
         if game_info_dict['dealer_win_lose'][0] == 'win':
             if game_info_dict['on_dealer_team'][i%n] == 'Yes':
                 print('Congrats to the dealer team!')
+                print('##############################')
                 next_dealer = game_info_dict['player_id'][i%n]
                 print('Next dealer is:', next_dealer.replace('_', ' '))
                 print('We are playing:', game_info_dict['level_after'][i%n],
                       'of round', game_info_dict['level_rounds_after'][i%n])
+                print('##############################')
                 break
             else:
                 continue
