@@ -108,6 +108,7 @@ def add_game_record(game_info_file,
         new_record_df = pd.concat([game_record_df, game_info_df], axis=0)
         new_record_df.reset_index(drop=True, inplace=True)
         new_record_df.to_csv(csv_log, index=False)
+        print('Local game record csv file updated.')
 
 
 if __name__ == '__main__':
@@ -115,6 +116,14 @@ if __name__ == '__main__':
     parser.add_argument("game_info_file", nargs='?',
                         help="optional; path to txt file of current game info.",
                         default='current_game.txt')
+    parser.add_argument("-f", "--force_remote", nargs='?', type=bool,
+                        help="optional; whether to force pulling data from Google spreadsheet",
+                        default=False)
     args = parser.parse_args()
 
-    add_game_record(args.game_info_file)
+    if args.force_remote is None:
+        force_remote = True
+    else:
+        force_remote = args.force_remote
+
+    add_game_record(args.game_info_file, force_remote)
