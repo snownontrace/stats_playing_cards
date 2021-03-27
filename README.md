@@ -24,4 +24,7 @@
 
 1. If the testing run is successful, you should see new lines of data added to the [testing Google spreadsheet](https://docs.google.com/spreadsheets/d/1GcPjxs5PaK7atFxVq4VFp94j4RlJf1z1HFlyGQmiYsw/edit?usp=sharing).
 
-1. Now you are all set to go! In future games, all you need to do is to edit "current_game.txt" and run `python python add_game_record.py` to add new game record.
+1. Now you are all set to go! In future games, all you need to do is to edit "current_game.txt" and run `python add_game_record.py` to add new game record.
+
+  - By default, add_game_record.py will first try to use the local game_record.csv in the log folder. If it is not there, it will pull data from the Google spreadsheet.
+  - You can also force the script to use data from the remote source (i.e.Google spreadsheet) by adding a '-f' flag (`python add_game_record.py -f`). This is useful when you have taken over the recording responsibility from another player and your local record is clearly not up to date.
