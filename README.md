@@ -27,4 +27,4 @@
 1. Now you are all set to go! In future games, all you need to do is to edit "current_game.txt" and run `python add_game_record.py` to add new game record.
 
     - By default, add_game_record.py will first try to use the local game_record.csv in the log folder. If it is not there, it will pull data from the Google spreadsheet.
-    - You can also force the script to use data from the remote source (i.e.Google spreadsheet) by adding a '-f' flag (`python add_game_record.py -f`). This is useful when you have taken over the recording responsibility from another player and your local record is clearly not up to date.
+    - You can also force the script to use data from Google spreadsheet by adding a '-f' flag (`python add_game_record.py -f`). This is useful when you have taken over the recording responsibility from another player and your local record is clearly not up to date.
