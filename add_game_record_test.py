@@ -66,7 +66,7 @@ def next_dealer_info(game_info_dict):
             else:
                 continue
 
-def add_game_record(game_info_file,
+def add_game_record(game_info_file, force_remote,
                     update_local=True, update_remote=True,
                     csv_log=None, spreadsheet_id=None, range_=None):
     '''
@@ -86,7 +86,7 @@ def add_game_record(game_info_file,
 
     # read in game record history from local record if exists;
     # otherwise, pull data from Google spreadsheet
-    game_record_df = get_df_game_record(force_remote=False,
+    game_record_df = get_df_game_record(force_remote=force_remote,
                                         csv_log=csv_log,
                                         spreadsheet_id=spreadsheet_id,
                                         range_name=range_)
@@ -115,6 +115,12 @@ if __name__ == '__main__':
     parser.add_argument("game_info_file", nargs='?',
                         help="optional; path to txt file of current game info.",
                         default='current_game.txt')
+    parser.add_argument("-f", "--force_remote", nargs='?', type=bool,
+                        help="optional; whether to force pulling data from Google spreadsheet",
+                        default=False)
     args = parser.parse_args()
 
-    add_game_record(args.game_info_file)
+    if args.force_remote is None:
+        force_remote = True
+
+    add_game_record(args.game_info_file, force_remote)
