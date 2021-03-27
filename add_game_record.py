@@ -48,10 +48,12 @@ def next_dealer_info(game_info_dict):
         if game_info_dict['dealer_win_lose'][0] == 'win':
             if game_info_dict['on_dealer_team'][i%n] == 'Yes':
                 print('Congrats to the dealer team!')
+                print('##############################')
                 next_dealer = game_info_dict['player_id'][i%n]
                 print('Next dealer is:', next_dealer.replace('_', ' '))
                 print('We are playing:', game_info_dict['level_after'][i%n],
                       'of round', game_info_dict['level_rounds_after'][i%n])
+                print('##############################')
                 break
             else:
                 continue
@@ -66,7 +68,7 @@ def next_dealer_info(game_info_dict):
             else:
                 continue
 
-def add_game_record(game_info_file,
+def add_game_record(game_info_file, force_remote,
                     update_local=True, update_remote=True,
                     csv_log=None, spreadsheet_id=None, range_=None):
     '''
@@ -99,11 +101,13 @@ def add_game_record(game_info_file,
 
     if update_remote:
         # reformat dict to 2D array for writing to Google spreadsheet
+        print('Updating Google spreadsheet...')
         data_in_columns = [game_info_dict[key] for key in game_info_dict.keys()]
         write_response = write_google_sheet(data_in_columns, spreadsheet_id, range_)
 
     if update_local:
         # reformat dict to pandas data frame
+        print('Updating local game record csv...')
         game_info_df = pd.DataFrame(game_info_dict)
         new_record_df = pd.concat([game_record_df, game_info_df], axis=0)
         new_record_df.reset_index(drop=True, inplace=True)
