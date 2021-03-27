@@ -86,7 +86,7 @@ def add_game_record(game_info_file,
 
     # read in game record history from local record if exists;
     # otherwise, pull data from Google spreadsheet
-    game_record_df = get_df_game_record(force_remote=False,
+    game_record_df = get_df_game_record(force_remote=force_remote,
                                         csv_log=csv_log,
                                         spreadsheet_id=spreadsheet_id,
                                         range_name=range_)
