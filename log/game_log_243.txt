@@ -5,9 +5,9 @@
 #
 players: Qingzhi_Liu, Zheng_Li, Di_Wu, Xu_Zhang, Hai_Yang, Shaohe_Wang, Yanni_Lin
 dealer: Yanni_Lin
-dealer_team: Qingzhi_Liu, Di_Wu
-MVP: Zheng_Li
+dealer_team: Qingzhi_Liu, Zheng_Li
+MVP: Di_Wu
 n_decks: 5
 score_goal: 230
-prime_suit: none
-score: 225
+prime_suit: diamond
+score: 260
