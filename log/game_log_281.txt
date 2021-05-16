@@ -5,9 +5,9 @@
 #
 players: Qingzhi_Liu, Zheng_Li, Di_Wu, Xu_Zhang, Hai_Yang, Shaohe_Wang, Qin_Peng
 dealer: Xu_Zhang
-dealer_team: Shaohe_Wang, Di_Wu
-MVP: Shaohe_Wang
+dealer_team: Shaohe_Wang, Qin_Peng
+MVP: NA
 n_decks: 5
 score_goal: 230
-prime_suit: club
-score: 325
+prime_suit: heart
+score: 270
