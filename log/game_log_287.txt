@@ -4,10 +4,10 @@
 #              Hai_Yang, Qingzhi_Liu, Yanni_Lin, Qin_Peng
 #
 players: Qingzhi_Liu, Zheng_Li, Di_Wu, Xu_Zhang, Hai_Yang, Shaohe_Wang
-dealer: Di_Wu
-dealer_team: Hai_Yang, Shaohe_Wang
-MVP: NA
+dealer: Zheng_Li
+dealer_team: Xu_Zhang, Shaohe_Wang
+MVP: Zheng_Li
 n_decks: 4
 score_goal: 170
-prime_suit: spade
-score: 115
+prime_suit: heart
+score: 85
