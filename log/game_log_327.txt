@@ -5,9 +5,9 @@
 #
 players: Zheng_Li, Di_Wu, Xu_Zhang, Qingzhi_Liu, Shaohe_Wang
 dealer: Xu_Zhang
-dealer_team: Zheng_Li
+dealer_team: Qingzhi_Liu
 MVP: NA
 n_decks: 3
 score_goal: 140
-prime_suit: heart
-score: 115
+prime_suit: diamond
+score: 110
