@@ -5,9 +5,9 @@
 #
 players: Hai_Yang, Di_Wu, Xu_Zhang, Shaohe_Wang
 dealer: Hai_Yang
-dealer_team: Xu_Zhang
+dealer_team: Di_Wu
 MVP: NA
 n_decks: 3
 score_goal: 120
-prime_suit: heart
-score: 50
+prime_suit: club
+score: 110
