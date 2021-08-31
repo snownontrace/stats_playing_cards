@@ -3,11 +3,11 @@
 # all players: Shaohe_Wang, Di_Wu, Zheng_Li, Xu_Zhang, Minghai_Qin
 #              Hai_Yang, Qingzhi_Liu, Yanni_Lin, Qin_Peng
 #
-players: Zheng_Li, Di_Wu, Xu_Zhang, Qingzhi_Liu, Shaohe_Wang
-dealer: Di_Wu
-dealer_team: Shaohe_Wang
+players: Hai_Yang, Zheng_Li, Di_Wu, Xu_Zhang, Qingzhi_Liu, Shaohe_Wang
+dealer: Xu_Zhang
+dealer_team: Qingzhi_Liu, Hai_Yang
 MVP: NA
-n_decks: 3
-score_goal: 140
-prime_suit: diamond
-score: 125
+n_decks: 4
+score_goal: 170
+prime_suit: heart
+score: 140
